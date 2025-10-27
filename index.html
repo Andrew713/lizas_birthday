@@ -7,7 +7,6 @@
     body {
       margin: 0;
       min-height: 100vh;
-      /* Бордово-красный сложный градиент */
       background: radial-gradient(circle at 30% 40%, #630E17 0%, #3b0109 80%, #82042b 100%);
       display: flex;
       flex-direction: column;
@@ -48,29 +47,30 @@
     <img src="1.png" alt="Обложка" width="768" height="1083">
     <img src="2.png" usemap="#invitemap" alt="Приглашение" width="768" height="1083">
     <map name="invitemap">
-      <area shape="rect" coords="53,1071,502,1163" href="3.png" alt="Вика и Даша">
-      <area shape="rect" coords="53,1165,511,1241" href="6.png" alt="Ира и Рита">
-      <area shape="rect" coords="50,1246,307,1329" href="8.png" alt="Женя">
-      <area shape="rect" coords="51,1332,461,1412" href="5.png" alt="Неля и Вася">
-      <area shape="rect" coords="53,1419,496,1504" href="5.png" alt="Кама и Паша">
-      <area shape="rect" coords="53,1515,483,1600" href="4.png" alt="Яна и Денис">
-      <area shape="rect" coords="53,1609,266,1684" href="7.png" alt="Вася">
-      <!-- Новая зона для Вишлист -->
-      <area shape="rect" coords="654,1219,1085,1579" href="https://followish.io/mywishlist/8ktvq0a3kitodw" alt="Вишлист">
+      <area shape="rect" coords="53,1071,502,1163" href="3.png" alt="Вика и Даша" data-key="vika-dasha">
+      <area shape="rect" coords="53,1165,511,1241" href="6.png" alt="Ира и Рита" data-key="ira-rita">
+      <area shape="rect" coords="50,1246,307,1329" href="8.png" alt="Женя" data-key="jenya">
+      <area shape="rect" coords="51,1332,461,1412" href="5.png" alt="Неля и Вася" data-key="nelia-vasya">
+      <area shape="rect" coords="53,1419,496,1504" href="5.png" alt="Кама и Паша" data-key="kama-pasha">
+      <area shape="rect" coords="53,1515,483,1600" href="4.png" alt="Яна и Денис" data-key="yana-denis">
+      <area shape="rect" coords="53,1609,266,1684" href="7.png" alt="Вася" data-key="vasya">
+      <area shape="rect" coords="654,1219,1085,1579" href="https://followish.io/mywishlist/8ktvq0a3kitodw" alt="Вишлист" data-key="wishlist">
     </map>
   </div>
   <script>
   window.onload = function() {
-    // Оригинальные размеры PNG с image-map.net
     const originalWidth = 1240;
     const originalHeight = 1748;
-
     const img = document.querySelector('img[usemap]');
     const map = document.querySelector('map');
     const scaleX = img.width / originalWidth;
     const scaleY = img.height / originalHeight;
 
-    // Обновляем координаты зон для кликабельности
+    // Получаем invite-параметр из адреса
+    const query = new URLSearchParams(window.location.search);
+    const inviteKey = query.get('invite');
+
+    // Пересчёт coords и скрытие ненужных зон
     map.querySelectorAll('area').forEach(area => {
       let coords = area.coords.split(',').map(Number);
       if (area.shape === 'rect') {
@@ -81,29 +81,12 @@
           Math.round(coords[3] * scaleY)
         ];
         area.coords = scaledCoords.join(',');
+        // если ключ не совпадает — скрыть
+        if (inviteKey && area.dataset.key !== inviteKey) {
+          area.style.display = 'none';
+        }
       }
     });
-
-    /*
-    // Визуальные контуры (раскомментировать при необходимости)
-    map.querySelectorAll('area').forEach(area => {
-      let coords = area.coords.split(',').map(Number);
-      if (area.shape === 'rect') {
-        let left = coords[0], top = coords[1];
-        let width = coords[2] - coords[0], height = coords[3] - coords[1];
-        let div = document.createElement('div');
-        div.style.position = 'absolute';
-        div.style.left = (img.offsetLeft + left) + 'px';
-        div.style.top = (img.offsetTop + top) + 'px';
-        div.style.width = width + 'px';
-        div.style.height = height + 'px';
-        div.style.border = '2px solid lime';
-        div.style.pointerEvents = 'none';
-        div.style.zIndex = 1000;
-        img.parentNode.appendChild(div);
-      }
-    });
-    */
   };
   </script>
 </body>
