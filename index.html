@@ -7,7 +7,8 @@
     body {
       margin: 0;
       min-height: 100vh;
-      background: radial-gradient(circle at 30% 40%, #440015 0%, #1d0017 80%, #130012 100%);
+      /* Бордово-красный сложный градиент */
+      background: radial-gradient(circle at 30% 40%, #630E17 0%, #3b0109 80%, #82042b 100%);
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -50,10 +51,12 @@
       <area shape="rect" coords="53,1071,502,1163" href="3.png" alt="Вика и Даша">
       <area shape="rect" coords="53,1165,511,1241" href="6.png" alt="Ира и Рита">
       <area shape="rect" coords="50,1246,307,1329" href="8.png" alt="Женя">
-      <area shape="rect" coords="51,1332,461,1412" href="4.png" alt="Неля и Вася">
+      <area shape="rect" coords="51,1332,461,1412" href="5.png" alt="Неля и Вася">
       <area shape="rect" coords="53,1419,496,1504" href="5.png" alt="Кама и Паша">
       <area shape="rect" coords="53,1515,483,1600" href="4.png" alt="Яна и Денис">
       <area shape="rect" coords="53,1609,266,1684" href="7.png" alt="Вася">
+      <!-- Новая зона для Вишлист -->
+      <area shape="rect" coords="654,1219,1085,1579" href="https://followish.io/mywishlist/8ktvq0a3kitodw" alt="Вишлист">
     </map>
   </div>
   <script>
@@ -81,7 +84,8 @@
       }
     });
 
-    // Отрисовка обводок поверх картинок
+    /*
+    // Визуальные контуры (раскомментировать при необходимости)
     map.querySelectorAll('area').forEach(area => {
       let coords = area.coords.split(',').map(Number);
       if (area.shape === 'rect') {
@@ -99,6 +103,7 @@
         img.parentNode.appendChild(div);
       }
     });
+    */
   };
   </script>
 </body>
