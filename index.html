@@ -1,54 +1,11 @@
 <!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <title>День рождения — приглашение</title>
-  <style>
-    body {
-      margin: 0;
-      min-height: 100vh;
-      /* Фон: глубокий, сложный градиент с плавными переходами, менее “плоский” */
-      background: linear-gradient(120deg, #37000a 0%, #4b162a 40%, #270812 65%, #511a2b 80%, #17000a 100%);
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-    .image-box {
-      margin-top: 32px;
-      margin-bottom: 32px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    img {
-      /* Без max-width! Только фикс. размеры — так image map работает гарантированно */
-      width: 768px;
-      height: 1083px;
-      box-shadow: 0 2px 30px #300a16a8;
-      border-radius: 20px;
-      margin-bottom: 24px;
-    }
-  </style>
-</head>
-<body>
-  <div class="image-box">
-    <img src="1.png" alt="Обложка" width="768" height="1083">
-    <img src="2.png" usemap="#invitemap" alt="Приглашение" width="768" height="1083">
-    <map name="invitemap">
-      <!-- Координаты в px по реальному размеру 768x1083 (замерьте руками или дам онлайн-инструмент) -->
-      <area shape="rect" coords="60,440,320,475" href="приглашение_для_вика_и_даша.html" alt="Вика и Даша">
-      <area shape="rect" coords="60,485,320,515" href="приглашение_для_ира_и_рита.html" alt="Ира и Рита">
-      <area shape="rect" coords="60,525,210,555" href="приглашение_для_женя.html"      alt="Женя">
-      <area shape="rect" coords="60,565,320,595" href="приглашение_для_неля_и_вася.html" alt="Неля и Вася">
-      <area shape="rect" coords="60,605,320,635" href="приглашение_для_кама_и_паша.html" alt="Кама и Паша">
-      <area shape="rect" coords="60,645,290,675" href="приглашение_для_яна_и_денис.html" alt="Яна и Денис">
-      <area shape="rect" coords="60,685,210,715" href="приглашение_для_вася.html"      alt="Вася">
+<html>
+  <body style="background:#222;">
+    <img src="2.png" usemap="#demo" alt="test" width="768" height="1083">
+    <map name="demo">
+      <area shape="rect" coords="0,0,200,200" href="https://google.com" alt="Test">
     </map>
-  </div>
-</body>
+  </body>
 </html>
 
 
