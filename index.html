@@ -47,40 +47,41 @@
     <img src="1.png" alt="Обложка" width="768" height="1083">
     <img src="2.png" usemap="#invitemap" alt="Приглашение" width="768" height="1083">
     <map name="invitemap">
-      <area shape="rect" coords="60,687,320,722" href="3.png" alt="Вика и Даша">
-      <area shape="rect" coords="60,732,320,762" href="6.png" alt="Ира и Рита">
-      <area shape="rect" coords="60,772,210,802" href="8.png" alt="Женя">
-      <area shape="rect" coords="60,812,320,842" href="4.png" alt="Неля и Вася">
-      <area shape="rect" coords="60,852,320,882" href="5.png" alt="Кама и Паша">
-      <area shape="rect" coords="60,892,290,922" href="4.png" alt="Яна и Денис">
-      <area shape="rect" coords="60,932,210,962" href="7.png" alt="Вася">
+      <area shape="rect" coords="53,1071,502,1163" href="3.png" alt="Вика и Даша">
+      <area shape="rect" coords="53,1165,511,1241" href="6.png" alt="Ира и Рита">
+      <area shape="rect" coords="50,1246,307,1329" href="8.png" alt="Женя">
+      <area shape="rect" coords="51,1332,461,1412" href="4.png" alt="Неля и Вася">
+      <area shape="rect" coords="53,1419,496,1504" href="5.png" alt="Кама и Паша">
+      <area shape="rect" coords="53,1515,483,1600" href="4.png" alt="Яна и Денис">
+      <area shape="rect" coords="53,1609,266,1684" href="7.png" alt="Вася">
     </map>
   </div>
   <script>
-  window.onload = function() {
-    const img = document.querySelector('img[usemap]');
-    const map = document.querySelector('map');
-    map.querySelectorAll('area').forEach(area => {
-      let coords = area.coords.split(',').map(Number);
-      if (area.shape === 'rect') {
-        let left = coords[0], top = coords[1];
-        let width = coords[2] - coords[0], height = coords[3] - coords[1];
-        let div = document.createElement('div');
-        div.style.position = 'absolute';
-        div.style.left = (img.offsetLeft + left) + 'px';
-        div.style.top = (img.offsetTop + top) + 'px';
-        div.style.width = width + 'px';
-        div.style.height = height + 'px';
-        div.style.border = '2px solid lime';
-        div.style.pointerEvents = 'none';
-        div.style.zIndex = 1000;
-        img.parentNode.appendChild(div);
-      }
-    });
-  };
+    window.onload = function() {
+      const img = document.querySelector('img[usemap]');
+      const map = document.querySelector('map');
+      map.querySelectorAll('area').forEach(area => {
+        let coords = area.coords.split(',').map(Number);
+        if (area.shape === 'rect') {
+          let left = coords[0], top = coords[1];
+          let width = coords[2] - coords[0], height = coords[3] - coords[1];
+          let div = document.createElement('div');
+          div.style.position = 'absolute';
+          div.style.left = (img.offsetLeft + left) + 'px';
+          div.style.top = (img.offsetTop + top) + 'px';
+          div.style.width = width + 'px';
+          div.style.height = height + 'px';
+          div.style.border = '2px solid lime';
+          div.style.pointerEvents = 'none';
+          div.style.zIndex = 1000;
+          img.parentNode.appendChild(div);
+        }
+      });
+    };
   </script>
 </body>
 </html>
+
 
 
 
