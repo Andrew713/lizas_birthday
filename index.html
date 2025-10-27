@@ -58,13 +58,22 @@
   </div>
   <script>
     window.onload = function() {
+      // Используем реальные размеры PNG с сайта image-map.net
+      const originalWidth = 1240;
+      const originalHeight = 1748;
+
       const img = document.querySelector('img[usemap]');
       const map = document.querySelector('map');
+      const scaleX = img.width / originalWidth;
+      const scaleY = img.height / originalHeight;
+
       map.querySelectorAll('area').forEach(area => {
         let coords = area.coords.split(',').map(Number);
         if (area.shape === 'rect') {
-          let left = coords[0], top = coords[1];
-          let width = coords[2] - coords[0], height = coords[3] - coords[1];
+          let left = Math.round(coords[0] * scaleX);
+          let top = Math.round(coords[1] * scaleY);
+          let width = Math.round((coords[2] - coords[0]) * scaleX);
+          let height = Math.round((coords[3] - coords[1]) * scaleY);
           let div = document.createElement('div');
           div.style.position = 'absolute';
           div.style.left = (img.offsetLeft + left) + 'px';
@@ -81,9 +90,6 @@
   </script>
 </body>
 </html>
-
-
-
 
 
 
