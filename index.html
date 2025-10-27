@@ -7,23 +7,26 @@
     body {
       margin: 0;
       min-height: 100vh;
-      background: linear-gradient(135deg, #8B1A1A 0%, #C0392B 65%, #660000 100%);
+      /* Фон: глубокий, сложный градиент с плавными переходами, менее “плоский” */
+      background: linear-gradient(120deg, #37000a 0%, #4b162a 40%, #270812 65%, #511a2b 80%, #17000a 100%);
+      background-repeat: no-repeat;
+      background-attachment: fixed;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
     }
     .image-box {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
       margin-top: 32px;
       margin-bottom: 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
     img {
-      max-width: 90vw;
-      max-height: 90vh;
+      /* Без max-width! Только фикс. размеры — так image map работает гарантированно */
+      width: 768px;
+      height: 1083px;
       box-shadow: 0 2px 30px #300a16a8;
       border-radius: 20px;
       margin-bottom: 24px;
@@ -32,11 +35,10 @@
 </head>
 <body>
   <div class="image-box">
-    <!-- Сначала нейтральная обложка без зон -->
-    <img src="1.png" alt="Обложка">
-    <!-- Потом интерактивная страница с зонами -->
-    <img src="2.jpg" usemap="#invitemap" alt="Приглашение">
+    <img src="1.png" alt="Обложка" width="768" height="1083">
+    <img src="2.png" usemap="#invitemap" alt="Приглашение" width="768" height="1083">
     <map name="invitemap">
+      <!-- Координаты в px по реальному размеру 768x1083 (замерьте руками или дам онлайн-инструмент) -->
       <area shape="rect" coords="60,440,320,475" href="приглашение_для_вика_и_даша.html" alt="Вика и Даша">
       <area shape="rect" coords="60,485,320,515" href="приглашение_для_ира_и_рита.html" alt="Ира и Рита">
       <area shape="rect" coords="60,525,210,555" href="приглашение_для_женя.html"      alt="Женя">
@@ -48,5 +50,6 @@
   </div>
 </body>
 </html>
+
 
 
