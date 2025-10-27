@@ -12,7 +12,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      position: relative; /* Для абсолютных оверлеев */
+      position: relative;
     }
     .image-box {
       margin-top: 32px;
@@ -21,7 +21,7 @@
       flex-direction: column;
       align-items: center;
       width: 100vw;
-      position: relative; /* Для оверлеев */
+      position: relative;
     }
     img {
       display: block;
@@ -47,18 +47,17 @@
     <img src="1.png" alt="Обложка" width="768" height="1083">
     <img src="2.png" usemap="#invitemap" alt="Приглашение" width="768" height="1083">
     <map name="invitemap">
-      <area shape="rect" coords="60,440,320,475" href="приглашение_для_вика_и_даша.html" alt="Вика и Даша">
-      <area shape="rect" coords="60,485,320,515" href="приглашение_для_ира_и_рита.html" alt="Ира и Рита">
-      <area shape="rect" coords="60,525,210,555" href="приглашение_для_женя.html" alt="Женя">
-      <area shape="rect" coords="60,565,320,595" href="приглашение_для_неля_и_вася.html" alt="Неля и Вася">
-      <area shape="rect" coords="60,605,320,635" href="приглашение_для_кама_и_паша.html" alt="Кама и Паша">
-      <area shape="rect" coords="60,645,290,675" href="приглашение_для_яна_и_денис.html" alt="Яна и Денис">
-      <area shape="rect" coords="60,685,210,715" href="приглашение_для_вася.html" alt="Вася">
+      <area shape="rect" coords="60,687,320,722" href="3.png" alt="Вика и Даша">
+      <area shape="rect" coords="60,732,320,762" href="6.png" alt="Ира и Рита">
+      <area shape="rect" coords="60,772,210,802" href="8.png" alt="Женя">
+      <area shape="rect" coords="60,812,320,842" href="4.png" alt="Неля и Вася">
+      <area shape="rect" coords="60,852,320,882" href="5.png" alt="Кама и Паша">
+      <area shape="rect" coords="60,892,290,922" href="4.png" alt="Яна и Денис">
+      <area shape="rect" coords="60,932,210,962" href="7.png" alt="Вася">
     </map>
   </div>
   <script>
   window.onload = function() {
-    // Картинка с usemap
     const img = document.querySelector('img[usemap]');
     const map = document.querySelector('map');
     map.querySelectorAll('area').forEach(area => {
@@ -82,6 +81,8 @@
   </script>
 </body>
 </html>
+
+
 
 
 
