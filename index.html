@@ -54,7 +54,8 @@
       <area shape="rect" coords="53,1419,496,1504" href="5.png" alt="Кама и Паша" data-key="kama-pasha">
       <area shape="rect" coords="53,1515,483,1600" href="4.png" alt="Яна и Денис" data-key="yana-denis">
       <area shape="rect" coords="53,1609,266,1684" href="7.png" alt="Вася" data-key="vasya">
-      <area shape="rect" coords="654,1219,1085,1579" href="https://followish.io/mywishlist/8ktvq0a3kitodw" alt="Вишлист" data-key="wishlist">
+      <!-- Вишлист без data-key чтобы не скрывался -->
+      <area shape="rect" coords="654,1219,1085,1579" href="https://followish.io/mywishlist/8ktvq0a3kitodw" alt="Вишлист">
     </map>
   </div>
   <script>
@@ -81,8 +82,8 @@
           Math.round(coords[3] * scaleY)
         ];
         area.coords = scaledCoords.join(',');
-        // если ключ не совпадает — скрыть
-        if (inviteKey && area.dataset.key !== inviteKey) {
+        // Оставляем все data-key кроме совпадающего INVITE, вишлист всегда видим
+        if (inviteKey && area.dataset.key && area.dataset.key !== inviteKey) {
           area.style.display = 'none';
         }
       }
@@ -91,3 +92,4 @@
   </script>
 </body>
 </html>
+
