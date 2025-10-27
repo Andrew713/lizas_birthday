@@ -1,12 +1,52 @@
-<img src="2.png" usemap="#invitemap">
-<map name="invitemap">
-  <!-- Примерные координаты (подправьте по факту, если надо чуть выше/ниже) -->
-  <area shape="rect" coords="60,440,320,475" href="приглашение_для_вика_и_даша.html" alt="Вика и Даша">
-  <area shape="rect" coords="60,485,320,515" href="приглашение_для_ира_и_рита.html" alt="Ира и Рита">
-  <area shape="rect" coords="60,525,210,555" href="приглашение_для_женя.html"      alt="Женя">
-  <area shape="rect" coords="60,565,320,595" href="приглашение_для_неля_и_вася.html" alt="Неля и Вася">
-  <area shape="rect" coords="60,605,320,635" href="приглашение_для_кама_и_паша.html" alt="Кама и Паша">
-  <area shape="rect" coords="60,645,290,675" href="приглашение_для_яна_и_денис.html" alt="Яна и Денис">
-  <area shape="rect" coords="60,685,210,715" href="приглашение_для_вася.html"      alt="Вася">
-</map>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>День рождения — приглашение</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #8B1A1A 0%, #C0392B 65%, #660000 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .image-box {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: 32px;
+      margin-bottom: 32px;
+    }
+    img {
+      max-width: 90vw;
+      max-height: 90vh;
+      box-shadow: 0 2px 30px #300a16a8;
+      border-radius: 20px;
+      margin-bottom: 24px;
+    }
+  </style>
+</head>
+<body>
+  <div class="image-box">
+    <!-- Сначала нейтральная обложка без зон -->
+    <img src="1.png" alt="Обложка">
+    <!-- Потом интерактивная страница с зонами -->
+    <img src="2.jpg" usemap="#invitemap" alt="Приглашение">
+    <map name="invitemap">
+      <area shape="rect" coords="60,440,320,475" href="приглашение_для_вика_и_даша.html" alt="Вика и Даша">
+      <area shape="rect" coords="60,485,320,515" href="приглашение_для_ира_и_рита.html" alt="Ира и Рита">
+      <area shape="rect" coords="60,525,210,555" href="приглашение_для_женя.html"      alt="Женя">
+      <area shape="rect" coords="60,565,320,595" href="приглашение_для_неля_и_вася.html" alt="Неля и Вася">
+      <area shape="rect" coords="60,605,320,635" href="приглашение_для_кама_и_паша.html" alt="Кама и Паша">
+      <area shape="rect" coords="60,645,290,675" href="приглашение_для_яна_и_денис.html" alt="Яна и Денис">
+      <area shape="rect" coords="60,685,210,715" href="приглашение_для_вася.html"      alt="Вася">
+    </map>
+  </div>
+</body>
+</html>
+
 
