@@ -1,12 +1,88 @@
 <!DOCTYPE html>
-<html>
-  <body style="background:#222;">
-    <img src="2.png" usemap="#demo" width="768" height="1083">
-    <map name="demo">
-      <area shape="rect" coords="0,0,300,300" href="https://google.com" alt="Test">
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Приглашение</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: radial-gradient(circle at 30% 40%, #440015 0%, #1d0017 80%, #130012 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative; /* Для абсолютных оверлеев */
+    }
+    .image-box {
+      margin-top: 32px;
+      margin-bottom: 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100vw;
+      position: relative; /* Для оверлеев */
+    }
+    img {
+      display: block;
+      margin-bottom: 24px;
+      width: 768px;
+      height: 1083px;
+      max-width: 100vw;
+      box-shadow: 0 2px 30px #0008;
+      border-radius: 20px;
+    }
+    @media (max-width: 768px) {
+      img {
+        width: 100vw;
+        height: auto;
+        max-width: 100vw;
+        border-radius: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="image-box">
+    <img src="1.png" alt="Обложка" width="768" height="1083">
+    <img src="2.png" usemap="#invitemap" alt="Приглашение" width="768" height="1083">
+    <map name="invitemap">
+      <area shape="rect" coords="60,440,320,475" href="приглашение_для_вика_и_даша.html" alt="Вика и Даша">
+      <area shape="rect" coords="60,485,320,515" href="приглашение_для_ира_и_рита.html" alt="Ира и Рита">
+      <area shape="rect" coords="60,525,210,555" href="приглашение_для_женя.html" alt="Женя">
+      <area shape="rect" coords="60,565,320,595" href="приглашение_для_неля_и_вася.html" alt="Неля и Вася">
+      <area shape="rect" coords="60,605,320,635" href="приглашение_для_кама_и_паша.html" alt="Кама и Паша">
+      <area shape="rect" coords="60,645,290,675" href="приглашение_для_яна_и_денис.html" alt="Яна и Денис">
+      <area shape="rect" coords="60,685,210,715" href="приглашение_для_вася.html" alt="Вася">
     </map>
-  </body>
+  </div>
+  <script>
+  window.onload = function() {
+    // Картинка с usemap
+    const img = document.querySelector('img[usemap]');
+    const map = document.querySelector('map');
+    map.querySelectorAll('area').forEach(area => {
+      let coords = area.coords.split(',').map(Number);
+      if (area.shape === 'rect') {
+        let left = coords[0], top = coords[1];
+        let width = coords[2] - coords[0], height = coords[3] - coords[1];
+        let div = document.createElement('div');
+        div.style.position = 'absolute';
+        div.style.left = (img.offsetLeft + left) + 'px';
+        div.style.top = (img.offsetTop + top) + 'px';
+        div.style.width = width + 'px';
+        div.style.height = height + 'px';
+        div.style.border = '2px solid lime';
+        div.style.pointerEvents = 'none';
+        div.style.zIndex = 1000;
+        img.parentNode.appendChild(div);
+      }
+    });
+  };
+  </script>
+</body>
 </html>
+
 
 
 
